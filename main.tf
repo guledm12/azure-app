@@ -59,6 +59,14 @@ provider   "azurerm"   {
      version     =   "latest" 
    } 
 
+   user_data = <<-EOF
+              #!/bin/bash
+              echo "Hello, World" > index.html
+              nohup busybox httpd -f -p 8080 &
+              EOF
+    
+   user_data_replace_on_change = true
+
    os_disk   { 
      caching             =   "ReadWrite" 
      storage_account_type   =   "Standard_LRS" 
