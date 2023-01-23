@@ -7,7 +7,7 @@ locals {
   custom_data = <<-EOF
             #!/bin/bash
             echo "Hello, World" > index.html
-            nohup busybox httpd -f -p 22 &
+            nohup busybox httpd -f -p 8080 &
             EOF
 }
 
